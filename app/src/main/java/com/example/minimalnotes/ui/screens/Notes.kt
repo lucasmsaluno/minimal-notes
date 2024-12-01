@@ -11,6 +11,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
@@ -44,7 +45,7 @@ fun Notes(
             TopAppBar(
                 colors = topAppBarColors(
                     containerColor = Color.Transparent,
-                    titleContentColor = Color(0xFF4B4A4B),
+                    titleContentColor = MaterialTheme.colorScheme.secondary,
                 ),
                 title = {
                     Row {
@@ -59,7 +60,7 @@ fun Notes(
             )
         },
         floatingActionButton = {
-            androidx.compose.material3.FloatingActionButton(
+            FloatingActionButton(
                 onClick = {
                     navController.navigate("note_details/")
                 },
@@ -74,7 +75,7 @@ fun Notes(
             modifier = modifier
                 .fillMaxSize()
                 .background(Color(0xFFDeDFDE))
-                .padding(top = innerPadding.calculateTopPadding(), start = 16.dp, end = 16.dp)
+                .padding(top = innerPadding.calculateTopPadding(), start = 16.dp, end = 16.dp, bottom = 100.dp)
         ) {
             if (state.value.isLoading) {
                 Text("Loading...", fontSize = 20.sp, color = Color.Gray)

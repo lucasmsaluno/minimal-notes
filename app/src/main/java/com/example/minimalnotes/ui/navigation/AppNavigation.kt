@@ -9,7 +9,6 @@ import androidx.navigation.compose.composable
 import com.example.minimalnotes.ui.screens.Details
 import com.example.minimalnotes.ui.screens.Favorites
 import com.example.minimalnotes.ui.screens.Notes
-import com.example.minimalnotes.ui.screens.Settings
 import com.example.minimalnotes.viewmodel.NoteViewModel
 
 @Composable
@@ -29,9 +28,6 @@ fun AppNavigation(
                 navController = navController,
                 noteViewModel = noteViewModel
             )
-        }
-        composable(route = "Settings") {
-            Settings()
         }
         composable(route = "note_details/{noteId}") { backStackEntry ->
             val noteId = backStackEntry.arguments?.getString("noteId") ?: "Unknown"

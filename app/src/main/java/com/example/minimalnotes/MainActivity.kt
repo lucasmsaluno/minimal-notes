@@ -8,9 +8,11 @@ import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SmallFloatingActionButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
@@ -65,7 +67,7 @@ fun MainScreen (noteViewModel: NoteViewModel) {
         },
         floatingActionButton = {
             if (isFloatingActionButtonVisible) {
-                androidx.compose.material3.FloatingActionButton(
+                FloatingActionButton(
                     onClick = {
                         navController.navigate("note_details/")
                     },

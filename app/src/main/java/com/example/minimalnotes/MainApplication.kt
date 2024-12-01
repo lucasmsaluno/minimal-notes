@@ -15,6 +15,6 @@ class MainApplication: Application() {
             applicationContext,
             NoteDatabase::class.java,
             NoteDatabase.NAME
-        ).build()
+        ).fallbackToDestructiveMigration().build()
     }
 }

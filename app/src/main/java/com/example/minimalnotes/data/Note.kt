@@ -13,5 +13,8 @@ data class Note(
     val title: String,
 
     @ColumnInfo(name = "note_description")
-    val content: String
+    val content: String,
+
+    @ColumnInfo(name = "note_favorite")
+    val isFavorite: Boolean? = null
 )

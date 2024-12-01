@@ -10,7 +10,9 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
@@ -37,19 +39,19 @@ fun Favorites(
     modifier: Modifier = Modifier,
     noteViewModel: NoteViewModel
 ) {
-//    val state = noteViewModel.noteUIState.collectAsState()
+    val state = noteViewModel.noteUIState.collectAsState()
 
     Scaffold(
         topBar = {
             TopAppBar(
                 colors = topAppBarColors(
                     containerColor = Color.Transparent,
-                    titleContentColor = Color(0xFF4B4A4B),
+                    titleContentColor = MaterialTheme.colorScheme.secondary,
                 ),
                 title = {
                     Row {
                         Text(
-                            "Favorites",
+                            "Notes",
                             fontWeight = FontWeight.SemiBold,
                             fontFamily = playfairFontFamily,
                             fontSize = 32.sp
@@ -59,7 +61,7 @@ fun Favorites(
             )
         },
         floatingActionButton = {
-            androidx.compose.material3.FloatingActionButton(
+            FloatingActionButton(
                 onClick = {
                     navController.navigate("note_details/")
                 },
@@ -74,27 +76,29 @@ fun Favorites(
             modifier = modifier
                 .fillMaxSize()
                 .background(Color(0xFFDeDFDE))
-                .padding(top = innerPadding.calculateTopPadding(), start = 16.dp, end = 16.dp)
+                .padding(top = innerPadding.calculateTopPadding(), start = 16.dp, end = 16.dp, bottom = 100.dp)
         ) {
-//            if (state.value.isLoading) {
-//                Text("Loading...", fontSize = 20.sp, color = Color.Gray)
-//
-//
-//            } else if (state.value.errorMessage != null) {
-//                Text("Error: ${state.value.errorMessage}", fontSize = 20.sp, color = Color.Red)
-//
-//            } else {
-//                LazyColumn {
-//                    items(state.value.notes) { note ->
-//                        NoteCard(
-//                            note = note,
-//                            onNoteClick = {
-//                                navController.navigate("note_details/${note.id}")
-//                            }
-//                        )
-//                    }
-//                }
-//            }
+            if (state.value.isLoadingFavorites) {
+                CircularProgressIndicator()
+
+            } else if (state.value.errorMessage != null) {
+                Text("Error: ${state.value.errorMessage}", fontSize = 20.sp, color = Color.Red)
+
+            } else {
+                LazyColumn {
+                    items(state.value.favoriteNotes) { note ->
+                        NoteCard(
+                            note = note,
+                            onNoteClick = {
+                                navController.navigate("note_details/${note.id}")
+                            }
+                        )
+                    }
+                }
+            }
         }
     }
 }
+
+
+

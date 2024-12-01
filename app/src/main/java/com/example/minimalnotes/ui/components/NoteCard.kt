@@ -12,6 +12,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.KeyboardArrowRight
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -32,16 +33,14 @@ fun NoteCard (
                 shape = RoundedCornerShape(10.dp)
             )
             .fillMaxWidth()
-            .padding(20.dp),
+            .padding(20.dp)
+            .clickable { onNoteClick(note.id) },
         horizontalArrangement = Arrangement.SpaceBetween
     ){
         Text(text = note.title)
         Icon(
             imageVector = Icons.Default.KeyboardArrowRight,
             contentDescription = null,
-            modifier.clickable {
-                onNoteClick(note.id)
-            }
         )
     }
     Spacer(modifier = Modifier.height(20.dp))
