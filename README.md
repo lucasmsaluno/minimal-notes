@@ -1,15 +1,15 @@
 
-  <h1>Calculator App</h1>
+  <h1>Minimal Notes</h1>
 
 
 
   
-![GitHub repo size](https://img.shields.io/github/repo-size/lucasmsaluno/calculator-app?style=for-the-badge)
-![GitHub language count](https://img.shields.io/github/languages/count/lucasmsaluno/calculator-app?style=for-the-badge)
+![GitHub repo size](https://img.shields.io/github/repo-size/lucasmsaluno/minimal-notes?style=for-the-badge)
+![GitHub language count](https://img.shields.io/github/languages/count/lucasmsaluno/minimal-notes?style=for-the-badge)
  
 
   <h4>
-    <img src="assets/calculatorgif.gif" width="300px" align="center"/>
+    <img src="assets/notesgif.gif" width="300px" align="center"/>
   </h4>
 
 
